@@ -1,11 +1,12 @@
 """FastAPI主应用"""
 import os
 
-# 1. 设置你的梯子代理地址（请把 7890 换成你实际代理软件的端口）
-os.environ["HTTP_PROXY"] = "http://127.0.0.1:7897"
-os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7897"
+# 使用 eth1 的真实物理网关 IP
+windows_ip = "10.82.120.61"
+proxy_url = f"http://{windows_ip}:7897"
 
-# 2. ✨ 核心魔法：代理白名单！告诉 Python 遇到这些地址绝对不要走梯子
+os.environ["HTTP_PROXY"] = proxy_url
+os.environ["HTTPS_PROXY"] = proxy_url
 os.environ["NO_PROXY"] = "localhost,127.0.0.1,.amap.com"
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
