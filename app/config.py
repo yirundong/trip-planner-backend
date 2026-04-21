@@ -22,7 +22,8 @@ class Settings(BaseSettings):
     port: int = 8000
 
     # CORS白名单
-    cors_origins: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:3000"
+    # cors_origins: str = "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:3000,http://localhost:54169,http://127.0.0.1:54169"
+    cors_origins: str = "*"
 
     # 高德地图API配置
     amap_api_key: str = ""
